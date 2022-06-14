@@ -1,0 +1,35 @@
+<%- include('./partials/header') -%> 
+<h1>Crear Película</h1>
+<form action="/peliculas/crear" method="POST" class="formulario">
+    <div>
+        <label for="">Titulo</label>
+        <input type="text" name="title">
+    </div>
+    <div>
+        <label for="">Premios</label>
+        <input type="text" name="awards">
+    </div>
+    <div>
+        <label for="">Duracion</label>
+        <input type="text" name="length">
+    </div>
+    <div>
+        <label for="">Rating</label>
+        <input type="text" name="rating">
+    </div>
+    <div>
+        <label for="">Fecha de estreno</label>
+        <input type="date" name="release_date">
+    </div>
+    <div>
+        <label for="">Genero</label>
+       <select name="genre">
+           <% for(let i = 0; i < genres.length; i++) { %> 
+           <option value="<%= genres[i].id %> "><%= genres[i].name %> </option>
+           <% } %> 
+       </select>
+    </div>
+    <button type="submit" class="botonAgregar">CREAR</button>
+</form>
+
+<%- include('./partials/footer') -%> 

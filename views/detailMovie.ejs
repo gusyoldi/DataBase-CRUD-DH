@@ -1,0 +1,32 @@
+
+<%- include('./partials/header') -%> 
+
+<figure>
+    <img src="/images/logo-DH.png" alt="Logo Digital House">
+</figure>
+
+<h1><%= movie.title %> </h1>    
+    <br>
+    <p>GENERO: <%= movie.genero.name %> </p>
+    <p>RATING: <%= movie.rating %> </p>
+    <p>PREMIOS: <%= movie.awards %> </p>
+    <p>DURACION: <%= movie.length + ' min'%> </p> 
+    <p>FECHA DE ESTRENO: <%= movie.release_date %> </p>
+    <br>
+    <ul>
+        <p>ACTORES:</p>
+        
+        <% for( let i = 0; i < movie.actores.length; i++ ) { %>
+            <li><%= movie.actores[i].first_name %> <%= movie.actores[i].last_name %></li>     
+        <% } %>
+    </ul>
+    <br>
+    <a href="/peliculas/editar/<%= movie.id %> ">
+        <button>Editar</button>
+    </a>
+    <form action="/peliculas/eliminar/<%= movie.id %> " method="POST">
+        <button type="submit" >Eliminar</button>
+    </form>
+    
+
+    <%- include('./partials/footer') -%> 

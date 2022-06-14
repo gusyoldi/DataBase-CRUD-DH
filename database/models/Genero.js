@@ -13,7 +13,7 @@ module.exports = function(sequelize, dataTypes) {
     }
 
     let config = {
-        tableName: "generes",
+        tableName: "genres",
         timestamps: false,
     }
     
@@ -22,7 +22,7 @@ module.exports = function(sequelize, dataTypes) {
     Genero.associate = function(models) {
         Genero.hasMany(models.Pelicula, {
             as: "peliculas",
-            foreignKey: "genere_id",
+            foreignKey: "genre_id",
             
         })
     }

@@ -1,0 +1,40 @@
+<%- include('./partials/header') -%> 
+<h1>Editar Película</h1>
+<form action="/peliculas/editar/<%= movie.id %> " method="POST" class="formulario">
+    <div>
+        <label for="">Titulo</label>
+        <input type="text" name="title" value="<%= movie.title %> ">
+    </div>
+    <div>
+        <label for="">Premios</label>
+        <input type="text" name="awards" value="<%= movie.awards %>" >
+    </div>
+    <div>
+        <label for="">Duracion</label>
+        <input type="text" name="length" value="<%= movie.length %>">
+    </div>
+    <div>
+        <label for="">Rating</label>
+        <input type="text" name="rating" value="<%= movie.rating %>">
+    </div>
+    <div>
+        <label for="">Fecha de estreno</label>
+        <input type="date" name="release_date">
+    </div>
+    <div>
+        <label for="">Genero</label>
+       <select name="genre">
+           <% for(let i = 0; i < genres.length; i++) { %> 
+            <% if (genres[i].id == movie.genre_id) { %>
+                <option value="<%= genres[i].id %> " selected><%= genres[i].name %> </option>
+                <% } else {%>
+                    <option value="<%= genres[i].id %> "><%= genres[i].name %> </option>
+                <% } %>   
+           <option value="<%= genres[i].id %> "><%= genres[i].name %> </option>
+           <% } %> 
+       </select>
+    </div>
+    <button type="submit" class="botonAgregar">EDITAR</button>
+</form>
+
+<%- include('./partials/footer') -%> 

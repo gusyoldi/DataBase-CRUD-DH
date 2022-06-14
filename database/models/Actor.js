@@ -1,4 +1,4 @@
-const Genero = require("./Genero");
+
 
 module.exports = function(sequelize, dataTypes) {
     let alias = "Actor";
@@ -33,10 +33,10 @@ module.exports = function(sequelize, dataTypes) {
     Actor.associate = function(models) {
         Actor.belongsToMany(models.Pelicula, {
             as: "peliculas",
-            throug: "actor_movie",
+            through: "actor_movie",
             foreignKey: "actor_id",
             otherKey: "movie_id",
-            timestamps: false,
+            timestamps: false
             
         })
     }

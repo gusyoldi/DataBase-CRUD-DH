@@ -1,0 +1,19 @@
+
+<%- include('./partials/header') -%> 
+
+<figure>
+    <img src="/images/logo-DH.png" alt="Logo Digital House">
+</figure>
+<h1>LISTADO DE PELÍCULAS</h1>
+<br>
+<p>
+    <a class="botonAgregar" href="/peliculas/crear">Agregar</a>
+</p>
+<ul class="lista">
+    <% for( let i = 0; i < movies.length; i++ ) { %>
+    <li>
+        <a href="/peliculas/<%= movies[i].id %>"><%= movies[i].title %></a>
+    </li>
+    <% } %>
+
+    <%- include('./partials/footer') -%> 

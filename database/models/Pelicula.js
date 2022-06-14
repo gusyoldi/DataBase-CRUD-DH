@@ -19,7 +19,7 @@ module.exports = function(sequelize, dataTypes) {
         length: {
             type: dataTypes.INTEGER
         },
-        genere_id: {
+        genre_id: {
             type: dataTypes.INTEGER
         },
         release_date: {
@@ -37,12 +37,12 @@ module.exports = function(sequelize, dataTypes) {
     Pelicula.associate = function(models) {
         Pelicula.belongsTo(models.Genero, {
             as: "genero",
-            foreignKey: "genere_id",
+            foreignKey: "genre_id",
             
         })
         Pelicula.belongsToMany(models.Actor, {
             as: "actores",
-            throug: "actor_movie",
+            through: "actor_movie",
             foreignKey: "movie_id",
             otherKey: "actor_id",
             timestamps: false,
